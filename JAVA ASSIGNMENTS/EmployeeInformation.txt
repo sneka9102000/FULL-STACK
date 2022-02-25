@@ -1,0 +1,303 @@
+MAIN CLASS:Employee.java
+
+
+package Employeeinformation;
+
+import java.util.*;
+
+public class Employee{
+	    public static void main (String args[])
+	    {
+	        Scanner sc=new Scanner(System.in);
+	        int age;
+	        String designation,location,id,mail,phno,doj,name;
+	        String salary;
+	        System.out.println("Enter the Employee Id :");
+	           id=sc.next();
+	           if(id.length()!=7){
+	               System.out.print("Employer Id must be 7 characters");
+	               System.exit(0);
+	           }
+	           else{
+	               if((id.substring(0,3)).equalsIgnoreCase("ACE")==false){
+	                   System.out.print("Employee Id must be starts with ACE");
+	                   System.exit(0);
+	               }
+	               String num=id.substring(3);
+	               for(int j=0;j<num.length();j++){
+	                   if(Character.isDigit(num.charAt(j))==false){
+	                       System.out.print("Employee Id must contains 4 digits");
+	                       System.exit(0);
+	                   }
+	               }
+	           }
+	      
+	        	
+	            
+	            System.out.println("Enter Name of Employee:");
+	            name=sc.next();
+	            char ch[]=name.toCharArray();
+	            for(int i=0;i<ch.length;i++){
+	                if(ch[i]!=' ' && Character.isAlphabetic(ch[i])==false){
+	                    System.out.println("Name must contains only alphabets and spaces");
+	    	            System.exit(0);
+	                }
+	            }
+	      
+
+	           // sc.nextLine();
+	            System.out.println("Enter mail Id of Employee:");
+	            mail=sc.next();
+	            String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+	            boolean result = mail.matches(regex);
+	            if(!result) {
+	               System.out.println("Given email-id is not valid");
+	               System.exit(0);
+	            }
+	            System.out.println("Enter Designation of Employee:");
+	            designation=sc.next();
+	            System.out.println("Enter Phone Number of Employee:");
+	            phno=sc.next();
+	            if(phno.length()!=10)
+	            {
+	                System.out.println("Phone number must contains only 10 digits");
+                    System.exit(0);
+
+	            }
+	            else{
+	                for(int k=0;k<phno.length();k++){
+	                    if(Character.isDigit(phno.charAt(k))==false){
+	                        System.out.println("Phone number must contains only digit");
+	                        System.exit(0);
+	                    }
+	                }
+	            }
+	            
+	            System.out.println("Enter Date of Joining of Employee:");
+	            doj=sc.next();
+	            System.out.println("Enter Age of Employee:");
+	            age=sc.nextInt();
+	            System.out.println("Enter the salary of Employee:");
+	            salary=sc.next();
+	            System.out.println("Enter the location of Employee");
+	            location=sc.next();
+	    		System.out.println("******************************************");
+	            Salary s =new Salary();
+	            //ENCAPSULATION(GETTERS AND SETTERS FUNCTION CALL)
+	            s.setSalary(salary);
+	            s.setDesignation(designation);
+	            s.setId(id);
+	            s.setName(name);
+	            s.setPhoneNumber(phno);
+	            s.setEmail(mail);
+	            s.setDateOfJoining(doj);
+	           // System.out.println(s.getName());
+	            //System.out.println(monthly_salary);
+	            //s.UserDetails();
+	            Employeedetails d=new Employeedetails(age,location);//INHERITANCE
+	            d.PersonalDetails(); 
+	            Employerabstract emp1=new Employerabstract(name,id,salary,designation,phno,doj,mail);//ABSTRACTION
+	            emp1.PrintUserDetails();
+	            Polymorphism p=new Polymorphism();//POLYMORPHISM
+	            p.PrintUserDetails(name,id,salary,designation,phno,doj,mail);
+	            p.PrintUserDetails(name,id,designation,phno,doj,mail);
+
+	        sc.close();
+	       
+	    }
+	    
+	}
+***************************************************************************************************************************************************************
+Employeedetails.java
+
+
+
+package Employeeinformation;
+
+class Employeedetails extends Employeeinformation
+{
+    //Scanner s=new Scanner(System.in);
+    public int employee_age;
+    public String location;
+    Employeedetails(int emp_age,String location)
+    {
+       this.employee_age=emp_age;
+       this.location=location;
+    }   
+    //METHOD 2
+    void PersonalDetails()
+    {
+        if(employee_age>20)
+        {
+            System.out.println("Age of the employee is:"+employee_age);
+            System.out.println("Location of the employee is:"+location);
+        }
+            
+        else
+        {
+            System.out.println("Cannot display details.");
+        }
+    }
+}
+
+*****************************************************************************************************************
+
+Employeeinformation.java
+
+
+
+package Employeeinformation;
+import java.util.Scanner;
+
+class Employeeinformation
+{
+    Scanner sc=new Scanner(System.in);
+    String emp_id;
+    public static String empname;
+    
+}
+
+        
+            
+*************************************************************************************8
+
+Employer.java
+
+
+package Employeeinformation;
+
+abstract class Employer {
+	abstract public void PrintUserDetails();
+}
+********************************************************************
+
+EmployerAbstract.java:
+
+package Employeeinformation;
+
+public class Employerabstract extends Employer{
+	public String empname,emp_id,monthly_salary,designation, phno, doj, mail;
+	Employerabstract(String empname,String emp_id,String monthly_salary,String designation,String phno, String doj,String mail)
+	{
+		this.empname=empname;
+		this.emp_id=emp_id;
+		this.monthly_salary=monthly_salary;
+		this.designation=designation;
+		this.phno=phno;
+		this.doj=doj;
+		this.mail=mail;
+		
+	}
+	public void PrintUserDetails() {
+		System.out.println("Name of the employee is:"+empname);
+        System.out.println("Id of employee is:"+emp_id);
+        System.out.println("Monthly salary is:"+monthly_salary);
+        System.out.println("Designation of the employee is:"+designation);
+        System.out.println("Phone Number of the employee is:"+phno);
+        System.out.println("Date Of Joining of the employee is:"+doj);
+        System.out.println("E-Mail of the employee is:"+mail);
+
+	}
+
+}
+***************************************************************************************
+Polymorphism.java
+
+
+
+package Employeeinformation;
+
+public class Polymorphism {
+	//METHOD OVERLOADING 
+	public void PrintUserDetails(String empname,String emp_id,String monthly_salary,String designation,String phno, String doj,String mail) {
+		System.out.println("******************************************");
+		System.out.println("Employee Information with Salary details");
+		System.out.println("Name of the employee is:"+empname);
+        System.out.println("Id of employee is:"+emp_id);
+        System.out.println("Monthly salary is:"+monthly_salary);
+        System.out.println("Designation of the employee is:"+designation);
+        System.out.println("Phone Number of the employee is:"+phno);
+        System.out.println("Date Of Joining of the employee is:"+doj);
+        System.out.println("E-Mail of the employee is:"+mail);
+
+	}
+
+	public void PrintUserDetails(String empname,String emp_id,String designation,String phno, String doj,String mail) {
+		System.out.println("******************************************");
+		System.out.println("Employee Information without Salary details");
+		System.out.println("Name of the employee is:"+empname);
+        System.out.println("Id of employee is:"+emp_id);
+        System.out.println("Designation of the employee is:"+designation);
+        System.out.println("Phone Number of the employee is:"+phno);
+        System.out.println("Date Of Joining of the employee is:"+doj);
+        System.out.println("E-Mail of the employee is:"+mail);
+
+	}
+
+
+
+}
+************************************************************************************************************
+Salary.java
+
+
+
+
+class Salary extends Employeeinformation
+{
+
+	//Scanner s=new Scanner(System.in);
+     private String monthly_salary,doj;
+     public String mail,phonenumber;
+     public String designation;
+     //ENCAPSULATION(getters and setters)
+    public void setSalary(String monthly_salary)
+    {
+    	this.monthly_salary=monthly_salary;
+    }
+    public void setDesignation(String designation)
+    {
+    	this.designation=designation;
+    }
+    public void setId(String emp_id )
+    {
+    	this.emp_id=emp_id;
+    }
+    public void setName(String empname )
+    {
+    	this.empname=empname;
+    }
+    public void setPhoneNumber(String phonenumber)
+    {
+    	this.phonenumber=phonenumber;
+    }
+    public void setEmail(String mail)
+    {
+    	this.mail=mail;
+    }
+    public void setDateOfJoining(String doj)
+    {
+    	this.doj=doj;
+    }
+    public String getSalary() {
+    	return monthly_salary;
+    }
+    public String getName() {
+    	return empname;
+    }
+    //METHOD 1
+    void UserDetails()
+    {
+            System.out.println("Name of the employee is:"+empname);
+            System.out.println("Id of employee is:"+emp_id);
+            System.out.println("Monthly salary is:"+monthly_salary);
+            System.out.println("Designation of the employee is:"+designation);
+            System.out.println("Phone Number of the employee is:"+phonenumber);
+            System.out.println("Date Of Joining of the employee is:"+doj);
+            System.out.println("E-Mail of the employee is:"+mail);
+
+        
+    }
+}
+**************************************************************************************************************************************************************************
+

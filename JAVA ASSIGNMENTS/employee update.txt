@@ -1,0 +1,438 @@
+MAIN CLASS ---- ENMPLOYEE
+
+/*Employee Management System
+  Author Name : Sneka P
+  Created At : 28/09/2021
+  Updated At : 24/10/2021
+  Reviewed by: Akshaya */
+
+package Employeeinformation;
+import java.util.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Date;
+public class Employee{
+	    public static void main (String args[]) throws ParseException,InterruptedException
+	    {
+		        Scanner sc=new Scanner(System.in);
+		        int age;
+		        String designation,location,id,mail,phno,doj,name,dob,monthlysalary;
+		        //object creation for validation class
+
+		        Records records = new Records();		     
+		        System.out.println("Welcome to Aspire Systems");
+
+				Thread.sleep(500);
+				
+                
+		        System.out.println("Enter the Employee Id :");
+	            id=sc.next();
+	            String Idresult = records.validateId(id);//calling the method
+	            if(Idresult.equalsIgnoreCase("ok")==false) {
+	            	System.out.println(Idresult);
+	            	System.exit(0);
+	            }
+	            
+	            System.out.println("Enter Name of Employee:");
+	            name=sc.nextLine();
+	            String nameresult = records.validateName(name);
+	            if(nameresult.equalsIgnoreCase("ok")==false) {
+	            	System.out.println(nameresult);
+	            	System.exit(0);
+	            }
+	            sc.nextLine();
+
+	            System.out.println("Enter mail Id of Employee:");
+	            mail=sc.next();
+	            String mailresult = records.validateEmail(mail);
+	            if(mailresult.equalsIgnoreCase("ok")==false) {
+	            	System.out.println(mailresult);
+	            	System.exit(0);
+	            }
+	            
+	            System.out.println("Enter Designation of Employee:");
+	            designation=sc.next();
+	            
+	            System.out.println("Enter Phone Number of Employee:");
+	            phno=sc.next();
+	            String phoneresult = records.validatePhoneNumber(phno);
+	            if(phoneresult.equalsIgnoreCase("ok")==false) {
+	            	System.out.println(phoneresult);
+	            	System.exit(0);
+	            }
+	            System.out.println("Enter Date of Birth of Employee:");
+	            dob=sc.next();
+	            int dobresult = records.validateDateOfBirth(dob);
+
+	            System.out.println("Enter Date of Joining of Employee:");
+	            doj=sc.next();
+	            records.DateOfJoiningValidation(dobresult,doj);
+
+	           
+	            System.out.println("Enter Age of Employee:");
+	            age=sc.nextInt();
+	            
+	            System.out.println("Enter the salary of Employee:");
+	            monthlysalary=sc.next();
+	            
+	            System.out.println("Enter the location of Employee");
+	            location=sc.next();
+	            
+	    		System.out.println("******************************************");
+	            Salary salary =new Salary();
+	            
+	            //ENCAPSULATION(GETTERS AND SETTERS FUNCTION CALL)
+	            salary.setSalary(monthlysalary);
+	            salary.setDesignation(designation);
+	            salary.setId(id);
+	            salary.setName(name);
+	            salary.setPhoneNumber(phno);
+	            salary.setEmail(mail);
+	            salary.setDateOfJoining(doj);
+	           // System.out.println(salary.getName());
+	           // System.out.println(monthly_salary);
+	           // salary.UserDetails();
+	            
+	            
+		         Details details=new Details(age,location);//INHERITANCE
+		         details.printPersonalDetails(); 
+		            
+		         Credentials credentials=new Credentials(name,id,monthlysalary,designation,phno,doj,mail);//ABSTRACTION
+		         credentials.PrintUserDetails();
+		            
+		         Personaldetails personaldetails=new Personaldetails();//POLYMORPHISM
+		         personaldetails.PrintUserDetails(name,id,monthlysalary,designation,phno,doj,mail);
+		         personaldetails.PrintUserDetails(name,id,designation,phno,doj,mail);
+	            
+
+	            sc.close();
+	       
+	    }
+	    
+	}
+*************************************************************************************************************
+CREDENTIALS.JAVA
+
+
+package Employeeinformation;
+
+public class Credentials extends Data{
+	public String empname,emp_id,monthly_salary,designation, phno, doj, mail;
+	Credentials(String empname,String emp_id,String monthly_salary,String designation,String phno, String doj,String mail)
+	{
+		this.empname=empname;
+		this.emp_id=emp_id;
+		this.monthly_salary=monthly_salary;
+		this.designation=designation;
+		this.phno=phno;
+		this.doj=doj;
+		this.mail=mail;
+		
+	}
+	public void PrintUserDetails(){
+		System.out.println("Name of the employee is:"+empname);
+        System.out.println("Id of employee is:"+emp_id);
+        System.out.println("Monthly salary is:"+monthly_salary);
+        System.out.println("Designation of the employee is:"+designation);
+        System.out.println("Phone Number of the employee is:"+phno);
+        System.out.println("Date Of Joining of the employee is:"+doj);
+        System.out.println("E-Mail of the employee is:"+mail);
+	}
+
+}
+**********************************************************************
+DATA.JAVA
+
+
+package Employeeinformation;
+
+abstract class Data {
+	abstract public void PrintUserDetails();
+}
+************************************************************
+INFORMATION.JAVA
+
+package Employeeinformation;
+import java.util.Scanner;
+
+class Information
+{
+    Scanner sc=new Scanner(System.in);
+    String emp_id;
+    public static String empname;
+    
+}
+**********************************************
+PERSONALDETAILS.JAVA
+
+
+package Employeeinformation;
+
+public class Personaldetails {
+	
+	//METHOD OVERLOADING 
+	public void PrintUserDetails(String empname,String emp_id,String monthly_salary,String designation,String phno, String doj,String mail) {
+		System.out.println("******************************************");
+		System.out.println("Employee Information with Salary details");
+		System.out.println("Name of the employee is:"+empname);
+        System.out.println("Id of employee is:"+emp_id);
+        System.out.println("Monthly salary is:"+monthly_salary);
+        System.out.println("Designation of the employee is:"+designation);
+        System.out.println("Phone Number of the employee is:"+phno);
+        System.out.println("Date Of Joining of the employee is:"+doj);
+        System.out.println("E-Mail of the employee is:"+mail);
+
+	}
+
+	public void PrintUserDetails(String empname,String emp_id,String designation,String phno, String doj,String mail) {
+		System.out.println("******************************************");
+		System.out.println("Employee Information without Salary details");
+		System.out.println("Name of the employee is:"+empname);
+        System.out.println("Id of employee is:"+emp_id);
+        System.out.println("Designation of the employee is:"+designation);
+        System.out.println("Phone Number of the employee is:"+phno);
+        System.out.println("Date Of Joining of the employee is:"+doj);
+        System.out.println("E-Mail of the employee is:"+mail);
+
+	}
+
+
+
+}
+*************************************************************
+RECORDS.JAVA
+
+package Employeeinformation;
+
+import java.util.TreeMap;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Date;
+
+
+public class Records {
+    public String id,mail,phno,name,output;
+    public String validateId(String id) {
+    	
+    	// ID Validation 
+    	
+    	if(id.length()!=7){
+    		output = "Employer Id must be 7 characters";
+    		return output;
+        }
+        else{
+            if((id.substring(0,3)).equalsIgnoreCase("ACE")==false){
+            	output = "Employee Id must starts with ACE";
+            	return output;
+            }
+            String num=id.substring(3);
+            for(int j=0;j<num.length();j++){
+                if(Character.isDigit(num.charAt(j))==false){
+                	output = "Employee Id must contains 4 digits";
+                	return output;
+                }
+            }
+        }
+    	return "ok";
+    }
+    
+    public String validateName(String name) {
+    	
+    	// Name Validation 
+    	
+    	char ch[]=name.toCharArray();
+        for(int i=0;i<ch.length;i++){
+            if(ch[i]!=' ' && Character.isAlphabetic(ch[i])==false){
+            	output = "Name must contains only alphabets and spaces";
+            	return output;
+            }
+        }
+        
+		TreeMap<Character,Integer> tm=new TreeMap<Character,Integer>();//collections 
+		char c[]=name.toCharArray();
+		for(int i=0;i<c.length;i++){
+		    if(tm.containsKey(c[i])){
+		       int temp=tm.get(c[i]);
+		       temp++;
+		       tm.put(c[i],temp);
+		    }
+		    else{
+		        tm.put(c[i],1);
+		    }
+		}
+		
+        for(char key:tm.keySet()){
+        	if(tm.get(key)>3) {
+        		output = "Irrelevant Name";
+        		return output;
+        	}
+        }
+        return "ok";
+    }
+    	
+    public String validatePhoneNumber(String phno) {
+    
+        // Phone Number Validation 
+    	String str="[6789]{1}[0-9]{9}";
+    	boolean result=phno.matches(str);
+    	if(!result) {
+        	output = "Given phone number is not valid";
+        	return output;
+    	}
+        
+       
+        return "ok";
+    }
+    
+    public String validateEmail(String mail) {
+    	
+        // Email Validation 
+        
+        String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+        boolean result = mail.matches(regex);
+        if(!result) {
+        	output = "Given email-id is not valid";
+        	return output;
+        }
+        
+    	return "ok";
+    }
+    public int validateDateOfBirth(String dob) throws ParseException
+    {
+       //Converting String to Date
+       SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+       Date date = formatter.parse(dob);
+
+       Instant instant = date.toInstant();
+       ZonedDateTime zone = instant.atZone(ZoneId.systemDefault());
+       LocalDate givenDate = zone.toLocalDate();
+       Period period = Period.between(givenDate, LocalDate.now());
+       //System.out.print(period.getYears()+" years "+period.getMonths()+" and "+period.getDays()+" days");
+       int total_years=period.getYears();
+       if(period.getYears()<=0)
+       {
+           System.out.println("invalid dob");
+           System.exit(0);
+       }
+       
+       return period.getYears();
+    }
+    public static Date StringToDate(String dob) throws ParseException{
+       //Instantiating the SimpleDateFormat class
+       SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+
+       //Parsing the given String to Date object
+       Date date = formatter.parse(dob);
+       System.out.println("Date object value: "+date);
+       return date;
+    }
+    public String DateOfJoiningValidation(int dob_year,String doj)throws ParseException
+    {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+       Date date = formatter.parse(doj);
+
+       Instant instant = date.toInstant();
+       ZonedDateTime zone = instant.atZone(ZoneId.systemDefault());
+       LocalDate givenDate = zone.toLocalDate();
+       Period period = Period.between(givenDate, LocalDate.now());
+       //System.out.print(period.getYears()+" years "+period.getMonths()+" and "+period.getDays()+" days");
+       int total_years=period.getYears();
+       
+       
+       if(period.getYears()<0||total_years>dob_year)
+       {
+    	   
+           System.out.println("Invalid date of birth.");
+           System.exit(0);
+           
+       }
+       if((dob_year-period.getYears()<18)||(dob_year-period.getYears()>60))
+       {
+           System.out.println("Age should be between 18 and 60");
+           System.exit(0);
+
+       }
+       else 
+       {
+        System.out.println(period.getYears()+" Years of Experience.");
+
+       }
+        return "";
+    }
+    
+    
+}
+
+***************************************
+SALARY.JAVA
+
+
+package Employeeinformation;
+
+class Salary extends Information
+{
+
+	//Scanner s=new Scanner(System.in);
+     private String monthly_salary,doj;
+     public String mail,phonenumber;
+     public String designation;
+     //ENCAPSULATION(getters and setters)
+    public void setSalary(String monthly_salary)
+    {
+    	this.monthly_salary=monthly_salary;
+    }
+    public void setDesignation(String designation)
+    {
+    	this.designation=designation;
+    }
+    public void setId(String emp_id )
+    {
+    	this.emp_id=emp_id;
+    }
+    public void setName(String empname )
+    {
+    	this.empname=empname;
+    }
+    public void setPhoneNumber(String phonenumber)
+    {
+    	this.phonenumber=phonenumber;
+    }
+    public void setEmail(String mail)
+    {
+    	this.mail=mail;
+    }
+    public void setDateOfJoining(String doj)
+    {
+    	this.doj=doj;
+    }
+    public String getSalary() {
+    	return monthly_salary;
+    }
+    public String getName() {
+    	return empname;
+    }
+    //METHOD 1
+    void printUserDetails()
+    {
+            System.out.println("Name of the employee is:"+empname);
+            System.out.println("Id of employee is:"+emp_id);
+            System.out.println("Monthly salary is:"+monthly_salary);
+            System.out.println("Designation of the employee is:"+designation);
+            System.out.println("Phone Number of the employee is:"+phonenumber);
+            System.out.println("Date Of Joining of the employee is:"+doj);
+            System.out.println("E-Mail of the employee is:"+mail);
+
+        
+    }
+}
+*******************************************
