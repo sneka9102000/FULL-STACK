@@ -1,6 +1,6 @@
 var squareNumber = document.querySelector('#number3');
 
-var result2 = document.querySelector('.result2');
+var result = document.querySelector('.result');
 
 if (!!window.SharedWorker) {
   var myWorker = new SharedWorker("worker.js");
