@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geo-location API</title>
+</head>
+<body>
+    <hi>Geo-location API sample</hi>
+    <button id="button" onclick="getLocation()">Get Location</button>
+    <div id="container"></div>
+    <a href="" id="link"></a>
+    <script>
+        function getLocation(){
+            if(!navigator.geolocation){
+                document.getElementById('container').innerText = "<h3>Oop's Geo location api dosen't support your browser</h3>";
+            }
+            else{
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
+
+            function success(position){
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.logitude;
+
+                document.getElementById('link').href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+                document.getElementById('link').innerText = `Latitude : ${latitude}, Longitude : ${longitude}`;
+            }
+
+            function error(){
+                document.getElementById('container').innerText = "Unable to retrive data";
+            }
+        }
+    </script>
+</body>
+</html>
+
