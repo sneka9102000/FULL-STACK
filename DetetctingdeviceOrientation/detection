@@ -1,6 +1,19 @@
-function getOrientation(){
-    var orientation = window.innerWidth > window.innerHeight ? "Landscape" : "Portrait";
-    return orientation;
-}
+<html>
 
- window.onresize = function(){ getOrientation(); }
+<head>
+    <h1> Device orientation </h1>
+</head>
+
+<body>
+<h2 id="doeSupported"></h2>
+</body>
+<script>
+    function getOrientation() {
+        var orientation = window.innerWidth > window.innerHeight ? "Landscape" : "Portrait";
+        return  document.getElementById("doeSupported").innerHTML=orientation;
+    }
+
+    window.onresize = function () { getOrientation(); }
+</script>
+
+</html>
