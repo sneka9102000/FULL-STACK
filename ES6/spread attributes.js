@@ -7,3 +7,5 @@ let SumElements = (arr) => {
     console.log(sum); // 220. 
    }
    SumElements([10, 20, 40, 60, 90]);
+
+//spread attributes
