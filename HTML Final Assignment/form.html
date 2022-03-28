@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Event Form</title>
+        <link rel="stylesheet" href="register.css">
+</head>
+<body>
+<div>
+<!--<form onsubmit="formvalidation()" action="register.html" >-->
+  <form onsubmit="formvalidation()" action="#" class="form">
+<table>
+    <tr>
+        <td><h3>Event Registration Form</h3></td>
+    </tr>
+	<tr>
+        <td>Full Name
+        <input type="text" id="name" placeholder="Your Name">
+        <span id="username"></span></td>
+    </tr>
+	<tr>
+       <td>Phone Number
+	   <input type="text" id="phno" placeholder="Your Phone number">
+        <span id="phone"></span></td>
+    </tr>
+	<tr>
+        <td>Email Id
+        <input type="email" id="email" placeholder="Your Email id">
+        <span id="emailid"></span></td>
+    </tr>
+	<tr>
+        <td>Date of Birth
+        <input type="date" id="dob">
+        <span id="db"></span></td>
+    </tr>
+	<tr>
+        <td>Gender
+        <input type="radio" name="gender" value="male" id="male" checked="true"> Male
+            <input type="radio" name="gender" value="female" id="female"> Female
+            <input type="radio" name="gender" value="other" id="other"> Other
+        <span id="gender"></span></td>
+    </tr>
+	<tr>
+        <td>Password
+        <input type="password" id="pwd" placeholder="Your Password">
+        <span id="pwds"></span></td>
+        
+    </tr>
+    <tr>
+        <td>Confirm Password
+        <input type="password" id="cpwd" placeholder="Confirm your password">
+        <span id="cpwds"></span></td>
+        
+    </tr>
+	<tr>
+		<td>Course
+		<select name="ctype" id="ctype" required>
+                            <option>Select course..</option>
+                            <option>HTML</option>
+                            <option>CSS</option>
+                            <option>JavaScript</option>
+                            <option>PHP</option>
+                        </select>
+        <span id="course"></span></td>
+	</tr>
+</table>
+<p><input type="checkbox" id="terms"> I agree to the terms and conditions
+<span id="check"></span></p>
+<p><input type="submit" id="submit" name="submit" value="SUBMIT"/></p>
+
+
+<!--<div id="result">**Successfully registered</div>-->
+</form>
+</div>
+<script src="register.js"></script>
+    </body>
+    </html>
