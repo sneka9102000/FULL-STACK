@@ -15,3 +15,6 @@ map.values(); // outputs only the values.
 for (let key of map.keys()) {
  console.log(key);
 }
+
+//map sample program
+
