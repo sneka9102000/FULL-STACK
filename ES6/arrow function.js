@@ -1,3 +1,5 @@
+//arrow function 
+
 function oldOne() {
  console.log("Hello World..!");
 }
