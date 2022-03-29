@@ -1,26 +1,21 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h2>JavaScript Map Objects</h2>
+    <html>
+        <body>
+        <h2>JavaScript Map Objects</h2>
+       
+        <p id="demo"></p>
 
-<h2 id="demo"></h2>
+            <script>
 
-<script>
+            const fruits = new Map();
+            
+            fruits.set("apples", 500);
+            fruits.set("bananas", 300);
+            fruits.set("oranges", 200);
 
-const apples = {name: 'Apples'};
-const bananas = {name: 'Bananas'};
-const oranges = {name: 'Oranges'};
+            document.getElementById("demo").innerHTML = fruits.get("apples");
+            </script>
 
-const fruits = new Map();
-
-
-fruits.set(apples, 500);
-fruits.set(bananas, 300);
-fruits.set(oranges, 200);
-
-document.getElementById("demo").innerHTML = fruits;
-</script>
-
-</body>
-</html>
+        </body>
+    </html>
 
