@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <html>
+        <body>
+
+        <p>Select a name from the list.</p>
+
+            <select id="mySelect" onchange="myFunction()">
+            <option value="Sneka">Sneka
+            <option value="Latha">Latha
+            <option value="Kumar">Kumar
+            </select>
+
+        <p id="demo"></p>
+
+            <script>
+            function myFunction() {
+            var x = document.getElementById("mySelect").value;
+            document.getElementById("demo").innerHTML = "The selected name is " + x;
+            }
+            </script>
+
+        </body>
+    </html>
+
