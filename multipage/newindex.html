@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="newindex.css" />
+    <script src="newindex.js" defer></script>
+    <title>Registraion Form</title>
+  </head>
+  <body>
+    <form action="#" class="form">
+      <h1 class="text-center">EMPLOYEE REGISTRATION</h1>
+      <!-- Progress bar -->
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
+        
+        <div
+          class="progress-step progress-step-active"
+          data-title="BASIC"
+        ></div>
+        <div class="progress-step" data-title="OTHERS"></div>
+        <div class="progress-step" data-title="WORK"></div>
+        <div class="progress-step" data-title="EDUCATION"></div>
+        <div class="progress-step" data-title="TEAM"></div>
+        <div class="progress-step" data-title="THANKYOU"></div>
+      </div>
+
+      <!-- Steps -->
+      <div class="form-step form-step-active">
+        <div class="input-group">
+            <label for="email">Email Id</label>
+            <input type="text" name="email" id="email" />
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <div class="input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+            />
+          </div>
+         
+        <div class="input-group">
+          <label for="firstname">Firstname</label>
+          <input type="text" name="username" id="firstname" />
+        </div>
+
+        <div class="input-group">
+            <label for="lastname">Lastname</label>
+            <input type="text" name="username" id="lastname" />
+          </div>
+        <!-- <div class="input-group">
+          <label for="position">Position</label>
+          <input type="text" name="position" id="position" />
+        </div> -->
+        <div class="">
+          <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="input-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" name="dob" id="dob" />
+          </div>
+          <div class="input-group">
+            <label for="gen">Gender</label>
+            <input type="text" name="gender" id="gen" />
+          </div>
+          <div class="input-group">
+            <label for="adrs">Address</label>
+            <input type="text" name="address" id="address" />
+          </div>
+          <div class="input-group">
+            <label for="state">State</label>
+            <input type="text" name="state" id="state" />
+          </div>
+          <div class="input-group">
+            <label for="mob">Mobile Number</label>
+            <input type="number" name="mobilenumber" id="mobilenumber" />
+          </div> 
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="#" class="btn btn-next">Next</a>
+        </div>
+      </div>
+
+
+      <div class="form-step">
+        <div class="input-group">
+          <label for="occ">Occupation</label>
+          <input type="text" name="occupation" id="occupation" />
+        </div>
+        <div class="input-group">
+            <label for="exp">Years Of Experience</label>
+            <input type="number" name="experience" id="experience" />
+          </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="#" class="btn btn-next">Next</a>
+        </div>
+      </div>
+
+      <div class="form-step">
+        <div class="input-group">
+          <label for="occ">Graduation</label>
+          <input type="text" name="graduation" id="graduation" />
+        </div>
+        <div class="input-group">
+            <label for="exp">Years Of Passed out</label>
+            <input type="number" name="experience" id="experience" />
+          </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="#" class="btn btn-next">Next</a>
+        </div>
+      </div>
+
+      <div class="form-step">
+        
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <input type="submit" value="Submit" class="btn" />
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
+
