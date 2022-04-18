@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="newindex.css" />
+    <script src="newindex.js" defer></script>
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <h1 class="final" id="final" >Thank you For Registering</h1>
+    <form action="#" id="form" class="form">
+      <h1 class="text-center">EMPLOYEE REGISTRATION</h1>
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
+        
+        <div
+          class="progress-step progress-step-active"
+          data-title="BASIC"
+        ></div>
+        <div class="progress-step" data-title="OTHERS"></div>
+        <div class="progress-step" data-title="WORK"></div>
+        <div class="progress-step" data-title="EDUCATION"></div>
+        <div class="progress-step" data-title="TEAM"></div>
+        <div class="progress-step" data-title="THANKYOU"></div>
+      </div>
+
+      <div class="form-step form-step-active">
+        <div class="input-group">
+            <label for="email">Email Id</label>
+            <input type="text" name="email" id="email" required/>
+            <span id="emailerror"></span>
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required />
+            <span id="passworderror"></span>
+          </div>
+          <div class="input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" required/>
+            <span id="confirmerror"></span>
+          </div>
+         
+
+        <div class="input-group">
+          <label for="firstname">Firstname</label>
+          <input type="text" name="username" id="firstname" />
+          <span id="firsterror"></span>
+        </div>
+
+        <div class="input-group">
+            <label for="lastname">Lastname</label>
+            <input type="text" name="username" id="lastname" />
+          </div>
+        
+        <div class="">
+          <a  onclick="validateBasicForm()" class="btn btn-next width-50 ml-auto">Next</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="input-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" name="dob" id="dob" onblur = "validateDOB()"/>
+            <span id="doberror"></span>
+          </div>
+          <div class="input-group">
+            <label for="gen">Gender</label>
+            <input type="radio" name="gender" id="gen" value="male"/>Male
+            <input type="radio" name="gender" id="gen" value="female"/>Female
+          </div>
+          <div class="input-group">
+            <label for="adrs">Address</label>
+            <input type="text" name="address" id="address" />
+          </div>
+          <div class="input-group">
+            <label for="state">State</label>
+            <select name="state" id="state" required>
+            <option value="tamilnadu">TamilNadu</option>
+            <option value="kerala">Kerala</option>
+            <option value="tamilnadu">Karnataka</option>
+            <option value="tamilnadu">Andhra Pradesh</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="mob">Mobile Number</label>
+            <input type="number" name="mobilenumber" id="mobilenumber" />
+            <span id="moberror"></span>
+          </div> 
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a onclick="validateOtherForm()" class="btn btn-next">Next</a>
+        </div>
+      </div>
+
+
+      <div class="form-step">
+        <div class="input-group">
+          <label for="occ">Occupation</label>
+          <input type="text" name="occupation" id="occupation" />
+        </div>
+        <div class="input-group">
+            <label for="exp">Years Of Experience</label>
+            <input type="number" name="experience" id="experience" />
+          </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a onclick="validateWorkForm()" class="btn btn-next">Next</a>
+        </div>
+      </div>
+
+      <div class="form-step">
+        <div class="input-group">
+          <label for="occ">Graduation</label>
+          <select name ="Graduation" id="graduation" >
+            <option value="Choose a graduation">Choose a graduation</option>
+            <option value="SSLC">SSLC</option>
+            <option value="HSC">HSC</option>
+            <option value="UG">UG</option>
+            <option value="PG">PG</option>
+          </select>
+        </div>
+        <div class="input-group">
+            <label for="exp">Years Of Passed out</label>
+            <input type="number" name="experience" id="yearofpass" />
+          </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a onclick="validateEducationForm()" class="btn btn-next">Next</a>
+        </div>
+      </div>
+
+      <div class="form-step ">
+        <div class="input-group">
+          <label for="prac">Practise</label>
+          <select name="Practise" id="practise">
+            <option value="Practise">Practise</option>
+          <option value="LAMP">LAMP</option>
+          <option value="BFS">BFS</option>
+          <option value="DOTNET">DOTNET</option>
+          <option value="JAVA">JAVA</option>
+          </select>
+        </div>
+        <div class="input-group">
+            <label for="tac">Terms and conditions</label>
+            <input type="checkbox" name="terms" id="terms">I agree to the terms 
+          </div>
+        
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a onclick="validateTeamForm()" class="btn btn-next">Submit</a>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
+
