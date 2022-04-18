@@ -202,6 +202,7 @@ function validatePassword(){
                 return true;
               }
 }
+
 function confirmPassword()
 {
   if(document.getElementById("confirmPassword").value=="")
@@ -328,6 +329,6 @@ function printThankyou()
   let form=document.getElementById("form")
   let final=document.getElementById("final");
   form.style.display="none";
-  final.style.display="block"
+  final.style.display="block";
 
 }
