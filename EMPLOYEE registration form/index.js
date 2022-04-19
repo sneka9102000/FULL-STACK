@@ -30,7 +30,7 @@ function validateBasics() {
 
 function validateEducation() {
   let yopo = valiYearOfPassout();
-  if (yopo == true) {
+  if (yopo === true) {
     return true
   }else {
     return false
@@ -41,7 +41,7 @@ function validateEducation() {
 function validateTeam() {
   let teamval = teamValidation();
   let check = chcekBoxValidation();
-  if (teamval && check == true) {
+  if (teamval && check === true) {
     printThankyou();
     return true;
   }else {
@@ -52,7 +52,7 @@ function validateTeam() {
 
 function chcekBoxValidation() {
   let tandc = document.getElementById("terms");
-  if (tandc.checked == false) {
+  if (tandc.checked === false) {
     console.log("Check the Terms and Conditions")
     return (false)
   }else {
@@ -64,7 +64,7 @@ function chcekBoxValidation() {
 
 function teamValidation() {
   let teamName = document.getElementById("practise")
-  if (teamName.options[teamName.selectedIndex].value == "Practise") {
+  if (teamName.options[teamName.selectedIndex].value === "Practise") {
     console.log("Select a Team")
     return false;
 
@@ -76,7 +76,7 @@ function teamValidation() {
 
 
 function valiYearOfPassout() {
-  if (document.getElementById("yearofpass").value == "") {
+  if (document.getElementById("yearofpass").value === "") {
     console.log("Enter year of passout")
     return false
   }else {
@@ -90,7 +90,7 @@ function validationOthers() {
   let dobVal = validateDOB();
   let mobileNoVal = validatePhone();
   console.log(dobVal, mobileNoVal)
-  if (dobVal && mobileNoVal == true) {
+  if (dobVal && mobileNoVal === true) {
     return true;
   }else {
     return false;
@@ -100,7 +100,7 @@ function validationOthers() {
 
 function validateBasicForm() {
   console.log("vali")
-  if (validateBasics() == true) {
+  if (validateBasics() === true) {
     updateForms();
     return true;
   }else {
@@ -111,7 +111,7 @@ function validateBasicForm() {
 
 function validateOtherForm() {
   console.log("other")
-  if (validationOthers() == true) {
+  if (validationOthers() === true) {
     updateForms();
     return true;
   }else {
@@ -123,7 +123,7 @@ function validateOtherForm() {
 function validateTeamForm() {
   console.log("Team")
   {
-    if (validateTeam() == true) {
+    if (validateTeam() === true) {
       return true;
     }else {
       return false;
@@ -137,7 +137,7 @@ function validateWorkForm() {
 
 
 function validateEducationForm() {
-  if (validateEducation() == true) {
+  if (validateEducation() === true) {
     updateForms();
     return true;
   }else {
