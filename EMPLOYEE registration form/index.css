@@ -161,3 +161,6 @@ input {
   margin:10px;
   display: inline;
 }
+span{
+  color:red;
+}
