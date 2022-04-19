@@ -22,106 +22,115 @@ function validateBasics() {
   console.log(emailVal, passwordVal, confirmPasswordVal, firstNameVal);
   if (emailVal && passwordVal && confirmPasswordVal && firstNameVal == true) {
     return true;
-  }
-  else {
+  }else {
     return false;
   }
 }
+
+
 function validateEducation() {
   let yopo = valiYearOfPassout();
   if (yopo == true) {
     return true
-  }
-  else {
+  }else {
     return false
   }
 }
+
+
 function validateTeam() {
   let teamval = teamValidation();
   let check = chcekBoxValidation();
   if (teamval && check == true) {
     printThankyou();
     return true;
-  }
-  else {
+  }else {
     return false;
   }
 }
+
+
 function chcekBoxValidation() {
   let tandc = document.getElementById("terms");
   if (tandc.checked == false) {
     console.log("Check the Terms and Conditions")
     return (false)
-  }
-  else {
+  }else {
     console.log("true");
     return true
   }
 }
+
+
 function teamValidation() {
   let teamName = document.getElementById("practise")
   if (teamName.options[teamName.selectedIndex].value == "Practise") {
     console.log("Select a Team")
     return false;
 
-  }
-  else {
+  }else {
     console.log("true")
     return true;
   }
 }
+
+
 function valiYearOfPassout() {
   if (document.getElementById("yearofpass").value == "") {
     console.log("Enter year of passout")
     return false
-  }
-  else {
+  }else {
     console.log("true")
     return true
   }
 }
+
+
 function validationOthers() {
   let dobVal = validateDOB();
   let mobileNoVal = validatePhone();
   console.log(dobVal, mobileNoVal)
   if (dobVal && mobileNoVal == true) {
     return true;
-  }
-  else {
+  }else {
     return false;
   }
 }
+
+
 function validateBasicForm() {
   console.log("vali")
   if (validateBasics() == true) {
     updateForms();
     return true;
-  }
-  else {
+  }else {
     return false;
   }
 }
+
+
 function validateOtherForm() {
   console.log("other")
   if (validationOthers() == true) {
     updateForms();
     return true;
-  }
-  else {
+  }else {
     return false;
   }
 }
+
+
 function validateTeamForm() {
   console.log("Team")
   {
     if (validateTeam() == true) {
       return true;
-    }
-    else {
+    }else {
       return false;
     }
   }
 }
+
 function validateWorkForm() {
   updateForms();
 }
@@ -131,11 +140,12 @@ function validateEducationForm() {
   if (validateEducation() == true) {
     updateForms();
     return true;
-  }
-  else {
+  }else {
     return false;
   }
 }
+
+
 function validateEmail() {
   console.log("step3")
   const regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
@@ -143,13 +153,14 @@ function validateEmail() {
   if (!result) {
     document.getElementById('emailError').textContent = "Please enter a proper Email Id";
     return false;
-  }
-  else {
+  }else {
     document.getElementById('emailError').textContent = "";
 
     return true;
   }
 }
+
+
 function validatePassword() {
   console.log("step4")
   const regexpattern = /^[a-zA-Z]{6,16}$/;
@@ -158,26 +169,23 @@ function validatePassword() {
   if (password == "") {
     document.getElementById('passwordError').textContent = " password is Required";
     return false;
-  }
-  else if (!result) {
+  }else if (!result) {
     document.getElementById('passwordError').textContent = "Please enter a valid password";
     return false;
-  }
-  else {
+  }else {
     document.getElementById('passwordError').textContent = "";
     return true;
   }
 }
 
+
 function confirmPassword() {
   if (document.getElementById("confirmPassword").value == "") {
     document.getElementById('confirmError').textContent = "Password Confirmation Required";
     return false;
-  }
-  else if (document.getElementById('confirmPassword').value === document.getElementById('password').value) {
+  }else if (document.getElementById('confirmPassword').value === document.getElementById('password').value) {
     return true;
-  }
-  else {
+  }else {
     document.getElementById('confirmError').textContent = "Please enter the password correctly";
     return false;
   }
@@ -190,30 +198,30 @@ function firstname() {
   if (!regName.test(name)) {
     document.getElementById('firstError').textContent = "Please enter your first name";
     return false;
-  }
-  else {
+  }else {
     return true;
   }
 }
+
+
 function validatePhone() {
   var phoneno = /^\d{10}$/;
   var pn = document.getElementById('mobilenumber').value.match(phoneno);
   if (!pn) {
     document.getElementById('mobError').textContent = "Please enter a valid phone number";
     return false;
-  }
-
-  else {
+  }else {
     document.getElementById('mobError').textContent = ""
     return true;
   }
 }
+
+
 function validateYOE() {
   var vy = document.getElementById('experience')
   if (vy > 1) {
     return true;
-  }
-  else {
+  }else {
     return false;
   }
 }
@@ -225,13 +233,13 @@ function validateDOB() {
   var dateDiff = now.getFullYear() - dateFormat.getFullYear();
   if (dateDiff >= 18 && dateDiff <= 60) {
     return true;
-  }
-  else {
+  }else {
     document.getElementById('dobError').textContent = "Please select the correct dob";
     return false;
 
   }
 }
+
 
 prevBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
